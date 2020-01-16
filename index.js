@@ -65,6 +65,7 @@ function Circle(x, y, radius, speedX, speedY){
         context.arc(this.x,this.y, this.radius,0,Math.PI*2,false)
         context.strokeStyle = "blue"
         context.stroke()
+        context.fill()
     }
     this.update = function(){
     //to make ball bounce back when it touches both walls(x:right and left)
