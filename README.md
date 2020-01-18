@@ -1,5 +1,5 @@
 # My HTML5-Canvas-Bouncing-Ball-MouseOver-Effect
-Contains code with jot notes on how i achieved that awesome ball and hover animation
+Contains code with jot notes on how i achieved that awesome circle and hover animation
 It Covers the four main essential skills
 * Creating and resizing canvas
 * Drawing elements on the screen

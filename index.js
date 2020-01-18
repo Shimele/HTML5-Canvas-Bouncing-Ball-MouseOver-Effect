@@ -64,10 +64,9 @@ let context = canvas.getContext("2d")
 
     let colorArray = [
         "#AF1C74",
-        "2EC4B6",
+        "#2EC4B6",
         "#FF9F1C",
         "#FDFFFC",
-        "#F8F99D"
     ]
 window.addEventListener("mousemove", function(event){
     mouse.x = event.clientX;
@@ -90,8 +89,10 @@ function Circle(x, y, radius, speedX, speedY){
     this.draw = function(){
         context.beginPath();
         context.arc(this.x,this.y, this.radius,0,Math.PI*2,false)
-        context.fillStyle = this.color
-        context.fill()
+        context.strokeStyle = this.color
+        context.stroke()
+        //context.fillStyle = this.color
+        //context.fill()
     }
     this.update = function(){
     //to make ball bounce back when it touches both walls(x:right and left)
@@ -147,7 +148,7 @@ function animate(){//where all animation happen
 
     canvas.width = window.innerWidth;
     canvas.height = this.window.innerHeight;
-    
+
     for(let i = 0; i < circleArray.length; i++){
        circleArray[i].update()
         
