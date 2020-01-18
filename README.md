@@ -6,7 +6,7 @@ It Covers the four main essential skills
 * Animating elements
 * How to interract with canvas elements
 
-![alt text]()
+![alt text](https://github.com/Shimele/My-Basic-HTML5-Canvas-Tuto/blob/master/circles.png)
 
 ## Live demo
 https://shimele.github.io/My-Basic-HTML5-Canvas-Tuto/.
