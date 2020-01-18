@@ -144,6 +144,10 @@ function animate(){//where all animation happen
     context.clearRect(0,0,window.innerWidth, window.innerHeight)//not forgeting to clear our canvas for each loop
     //draw circle and update position
     //draw circle by loopx through circleArray and call update function to it
+
+    canvas.width = window.innerWidth;
+    canvas.height = this.window.innerHeight;
+    
     for(let i = 0; i < circleArray.length; i++){
        circleArray[i].update()
         
