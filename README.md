@@ -10,4 +10,4 @@ It Covers the four main essential skills
 ![alt text](https://github.com/Shimele/My-Basic-HTML5-Canvas-Tuto/blob/master/circles.png)
 
 ## Live demo
-https://shimele.github.io/My-Basic-HTML5-Canvas-Tuto/.
+https://shimele.github.io/HTML5-Canvas-Bouncing-Ball-MouseOver-Effect/
