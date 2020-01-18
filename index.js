@@ -127,7 +127,7 @@ function Circle(x, y, radius, speedX, speedY){
     /*let circle = new Circle(200,300, 50, 5, 5)*/
     //better still creat an instance of Circle object in a loop;
 let circleArray = [] //which will be looped inside animate function to creat multiple independent balls 
-for(let i = 0; i < 700; i++){
+for(let i = 0; i < 1000; i++){
     let x = Math.random() * innerWidth //setting an initial coord for x
     let y = Math.random() * innerHeight //setting an initial coord for x
     let radius = Math.random() * 3 +1;
