@@ -50,6 +50,31 @@ let context = canvas.getContext("2d")
             context.stroke()
         }
 */
+
+//*step -4 interract with canvas element
+
+    //here we want to make balls that come in contact with mouse(cursor) grow in size
+
+    //creat object to hold x and y coordinate of mouse
+    let mouse = {
+        x: undefined,
+        y: undefined,
+    }
+    let maxRadius = 50;
+
+    let colorArray = [
+        "#AF1C74",
+        "2EC4B6",
+        "#FF9F1C",
+        "#FDFFFC",
+        "#F8F99D"
+    ]
+window.addEventListener("mousemove", function(event){
+    mouse.x = event.clientX;
+    mouse.y = event.clientY;
+})
+
+
 //*step -3 Animating elements
 
     //creat a circle object or constructor function where we will creat multiple new circle
@@ -58,13 +83,14 @@ function Circle(x, y, radius, speedX, speedY){
     this.x = x;
     this.y = y;
     this.radius = radius;
+    this.minRadius = radius;
     this.speedX = speedX;
     this.speedY = speedY;
+    this.color = colorArray[Math.floor(Math.random() * colorArray.length)]
     this.draw = function(){
         context.beginPath();
         context.arc(this.x,this.y, this.radius,0,Math.PI*2,false)
-        context.strokeStyle = "blue"
-        context.stroke()
+        context.fillStyle = this.color
         context.fill()
     }
     this.update = function(){
@@ -85,17 +111,26 @@ function Circle(x, y, radius, speedX, speedY){
     //making the circle move up and down continually
     this.draw()//include draw method in update function
 
+    //add interractivty with mouse
+    //if the distance bln cursor and coordinate x of circle is less than 50 and greater than -50
+    if(mouse.x - this.x < 70 && mouse.x - this.x > -70 && mouse.y - this.y < 70 && mouse.y - this.y > -70){
+        if(this.radius < maxRadius){//also if radius is less than the max radius assigned
+            this.radius += 1; //grow radius by 1
+        }
+    }else if(this.radius > this.minRadius){
+        this.radius -= 1;
     }
+ }
 }
 
     //creat an instance of Circle object like this
     /*let circle = new Circle(200,300, 50, 5, 5)*/
     //better still creat an instance of Circle object in a loop;
 let circleArray = [] //which will be looped inside animate function to creat multiple independent balls 
-for(let i = 0; i < 100; i++){
+for(let i = 0; i < 200; i++){
     let x = Math.random() * innerWidth //setting an initial coord for x
     let y = Math.random() * innerHeight //setting an initial coord for x
-    let radius = Math.random() * 50;
+    let radius = Math.random() * 3 +1;
     let speedX = (Math.random()- 0.5) *2;//random speed including -ve values to movement on x axis
     let speedY = (Math.random()-0.5) *2;//random speed including -ve to movement on y axis
     circleArray.push(new Circle(x,y,radius,speedX,speedY))//creat new instance of circle with given arguments and push in a new array
@@ -107,13 +142,12 @@ function animate(){//where all animation happen
     //it takes as parameter our animate function itself(callback)
     //so it will execute over and over everything inside this animate function
     context.clearRect(0,0,window.innerWidth, window.innerHeight)//not forgeting to clear our canvas for each loop
-
-    //draw circle by loopx through circleArray
+    //draw circle and update position
+    //draw circle by loopx through circleArray and call update function to it
     for(let i = 0; i < circleArray.length; i++){
        circleArray[i].update()
         
     }
-    //update circle position
     
 }
 animate()
