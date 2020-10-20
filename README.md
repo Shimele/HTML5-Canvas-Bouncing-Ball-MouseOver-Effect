@@ -1,4 +1,4 @@
-# My HTML5-Canvas-Bouncing-Ball-MouseOver-Effect
+# My HTML5-Canvas Ball-MouseOver-Effect
 Made with HTML5 and Javascript
 - Contains code with jot notes on how i achieved that awesome circle and hover animation
 It Covers the four main essential skills
